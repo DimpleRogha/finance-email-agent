@@ -10,6 +10,6 @@ def save_log(row, stage):
         "timestamp": str(datetime.now())
     }
 
-    with open("logs/audit_log.json", "a") as f:
+    with open("logs/audit_log.jsonl", "a") as f:
         json.dump(log, f)
         f.write("\n")
