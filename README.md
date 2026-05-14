@@ -1,3 +1,83 @@
+# Finance Credit Follow-Up Agent
+
+An AI-powered finance collections assistant built using Streamlit and OpenRouter APIs. The system automates overdue invoice follow-ups by generating escalation-based reminder emails with dynamic tone control, audit logging, and dashboard analytics.
+
+The application demonstrates workflow automation, prompt engineering, and business-rule-driven AI integration for finance operations.
+
+## Features
+
+* CSV-based invoice ingestion
+* Overdue payment analysis
+* Multi-stage escalation workflow
+* AI-generated finance follow-up emails
+* Dynamic tone escalation
+* CTA-aware payment reminders
+* Mock-send email simulation
+* Audit logging system
+* Streamlit dashboard interface
+* Environment-based secret management
+
+## Tech Stack
+
+| Component              | Technology       |
+| ---------------------- | ---------------- |
+| Frontend Dashboard     | Streamlit        |
+| Data Processing        | Pandas           |
+| LLM Provider           | OpenRouter       |
+| Model                  | GPT-4o Mini      |
+| Environment Management | python-dotenv    |
+| Logging                | JSONL Audit Logs |
+| Language               | Python           |
+
+## Setup Instructions
+
+### Clone Repository
+
+```bash
+git clone https://github.com/DimpleRogha/finance-email-agent.git
+cd finance-email-agent
+```
+
+### Install Dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+### Configure Environment Variables
+
+Create a `.env` file:
+
+```env
+OPENROUTER_API_KEY=your_api_key_here
+```
+
+### Run Application
+
+```bash
+streamlit run app.py
+```
+
+## Project Structure
+
+```text
+finance-email-agent/
+│
+├── app.py
+├── email_agent.py
+├── prompt_templates.py
+├── audit_log.py
+├── requirements.txt
+├── .env.example
+│
+├── logs/
+│   └── audit_log.jsonl
+│
+├── sample_data/
+│   └── invoices.csv
+```
+
+
 1. LLM Chosen
       The application uses GPT-4o Mini via OpenRouter API for AI-generated finance follow-up emails.
 
@@ -81,3 +161,13 @@
 | Email Spoofing       | AI-generated emails could appear misleading if sent directly.                       | Current implementation uses mock-send simulation only and does not transmit real emails. Real deployment would require verified sender domains and SMTP authentication.                                          |
 | Audit & Traceability | Missing logs may reduce accountability for generated communications.                | Every generated email action is recorded with timestamp, invoice number, and escalation stage using structured audit logs.                                                                                       |
 
+
+## Future Improvements
+
+* Real SMTP email integration
+* Authentication layer
+* Database-backed invoice storage
+* Role-based access control
+* PDF invoice attachment support
+* Analytics dashboard charts
+* Human approval workflow
