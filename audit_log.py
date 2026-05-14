@@ -7,7 +7,7 @@ def save_log(row, stage):
         "client": row["client_name"],
         "invoice": row["invoice_no"],
         "stage": stage,
-        "timestamp": str(datetime.now()),
+        "timestamp": str(datetime.now())
     }
 
     with open("logs/audit_log.json", "a") as f:
