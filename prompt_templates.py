@@ -7,6 +7,15 @@ def generate_prompt(data, stage):
         "stern": "Stern and urgent"
     }
 
+    cta_map = {
+    "warm": "Use the payment portal below to complete the payment.",
+    "firm": "Please confirm your payment date at the earliest.",
+    "formal": "Please respond within the next 48 hours regarding this invoice.",
+    "stern": "Immediate payment is required to avoid escalation."
+    }
+
+    payment_link = "https://payments.finflow.com/pay"
+
     return f"""
     You are a finance collections assistant.
 
@@ -20,6 +29,18 @@ def generate_prompt(data, stage):
     Amount Due: ₹{data['amount']}
     Due Date: {data['due_date']}
     Days Overdue: {data['days_overdue']}
+
+    CTA:
+    {cta_map.get(stage)}
+
+    Payment Link:
+    {payment_link}
+
+    Sender Details: 
+    Name: Dimple Rogha,
+    Department: Finance Team,
+    Company: XYZ Corporation,
+    Email: dimplerogha@gmail.com
 
     Requirements:
     - Keep email professional

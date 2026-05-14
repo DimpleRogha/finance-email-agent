@@ -11,6 +11,8 @@ st.caption("AI-powered invoice reminder automation dashboard")
 df = pd.read_csv("sample_data/invoices.csv")
 total_invoices = len(df)
 
+payment_link = "https://payments.finflow.com/pay"
+
 overdue_count = 0
 escalated_count = 0
 emails_generated = 0
@@ -68,5 +70,6 @@ for index, row in df.iterrows():
     st.subheader("Generated Email")
 
     st.write(email)
+    st.link_button("Pay Now", payment_link)
     st.success(f"Mock email sent to {row['email']}")
     st.divider()
